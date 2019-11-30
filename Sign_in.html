@@ -10,7 +10,13 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="theme_sign.css">
+
+  <!-- import function js file -->
   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="cookie.js-master/dist/cookie.umd.min.js"></script>
+  <script type="text/javascript" src="function-js/authentication.js"></script>
+
   <title>Sign In</title>
 
 </head>
@@ -29,8 +35,10 @@
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
               <a class="search_logo" href="#"><img src="element/search.png" width="47" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-primary my-2 my-sm-0" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-primary my-2 my-sm-0" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
+              <button class="btn btn-primary my-2 my-sm-0" id="register" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-primary my-2 my-sm-0" id="signIn" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
+               <!-- ปุ่ม log out อยู่นี่จ้าาา  -->
+              <button class="btn btn-primary my-2 my-sm-0" id="logOut" type="submit" color="#fff" style="background-color: rgb(66, 167, 131); cursor: pointer; display: none;">Log out</button>
             </form>
           </div>  
       </nav>
@@ -67,11 +75,11 @@
         <hr style="float: left; width: 30%;"> 
        </div><br><br>
        <div class="insert">
-     <input class="form-control mr-sm-2" type="text" placeholder="บัญชีผู้ใช้">
-     <input class="form-control mr-sm-2" type="text" placeholder="รหัสผ่าน"><br>
+     <input class="form-control mr-sm-2" id="signIn_username" type="text" placeholder="บัญชีผู้ใช้">
+     <input class="form-control mr-sm-2" id="signIn_password" type="text" placeholder="รหัสผ่าน"><br>
     </div>
      <li class="forget"><a href="Forpass.html">ลืมรหัสผ่าน</a></li><br>
-    <button class="accept"><span>เข้าสู่ระบบ</span></button>
+    <button class="accept" id="signIn_accept" ><span>เข้าสู่ระบบ</span></button>
     </ul><br>
      <div class="end">
      <li style="float: left;" class="text2">ไม่มีบัญชีผู้ใช้ ?</li>
