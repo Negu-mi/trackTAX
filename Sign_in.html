@@ -37,7 +37,6 @@
               <a class="search_logo" href="#"><img src="element/search.png" width="47" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" id="register" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" id="signIn" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
-               <!-- ปุ่ม log out อยู่นี่จ้าาา  -->
               <button class="btn btn-primary my-2 my-sm-0" id="logOut" type="submit" color="#fff" style="background-color: rgb(66, 167, 131); cursor: pointer; display: none;">Log out</button>
             </form>
           </div>  
@@ -65,7 +64,7 @@
 
   <div class="layout">
    <ul>
-    <input class="sub-topic" type="text" value="เข้าสู่ระบบ">
+    <input class="sub-topic" type="text" value="เข้าสู่ระบบ" disabled>
      <ul>
      <button class="btn btn-danger my-2 my-sm-0" type="submit" style="background-color: rgb(230, 42, 42)"> &nbsp;&nbsp;&nbsp;&nbsp;<img src="element/mail.png" width="28" height="20"/>&nbsp;&nbsp;เข้าสู่ระบบด้วย Gmail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
      <br>
@@ -76,7 +75,7 @@
        </div><br><br>
        <div class="insert">
      <input class="form-control mr-sm-2" id="signIn_username" type="text" placeholder="บัญชีผู้ใช้">
-     <input class="form-control mr-sm-2" id="signIn_password" type="password" placeholder="รหัสผ่าน"><br>
+     <input class="form-control mr-sm-2" id="signIn_password" type="password" placeholder="รหัสผ่าน" minlength="8"><br>
     </div>
      <li class="forget"><a href="Forpass.html">ลืมรหัสผ่าน</a></li><br>
     <button class="accept" id="signIn_accept" ><span>เข้าสู่ระบบ</span></button>
