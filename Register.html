@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="theme_regis.css">
   
+  <!-- import function js file -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="cookie.js-master/dist/cookie.umd.min.js"></script>
+  <script type="text/javascript" src="function-js/authentication.js"></script>
+
   <title>Register</title>
 
 </head>
@@ -67,15 +73,15 @@
         <hr style="float: left; width: 30%;"> 
        </div><br><br>
        <div class="insert">
-     <input class="form-control mr-sm-2" type="text" placeholder="บัญชีผู้ใช้" name="username">
-     <input class="form-control mr-sm-2" type="text" placeholder="รหัสผ่าน" name="password1">
-     <input class="form-control mr-sm-2" type="text" placeholder="ยืนยันรหัสผ่าน" name="password2"><br>
+     <input class="form-control mr-sm-2" id="register_username" type="text" placeholder="บัญชีผู้ใช้" name="username">
+     <input class="form-control mr-sm-2" id="register_password" type="text" placeholder="รหัสผ่าน" name="password1">
+     <input class="form-control mr-sm-2" id="register_passwordConfirm" type="text" placeholder="ยืนยันรหัสผ่าน" name="password2"><br>
     </div>
-    <button class="accept"><span>ลงทะเบียน</span></button>
+    <button class="accept" id="register_accept"><span>ลงทะเบียน</span></button>
     </ul><br>
      <div class="end">
      <li style="float: left;" class="text2">มีบัญชีผู้ใช้แล้ว ?</li>
-     <li class="login"><a href="Sign_in.html">เข้าสู่ระบบ</li>
+     <li class="login"><a href="Sign_in.html">เข้าสู่ระบบ</a></li>
     </div>
    </ul>
   </div>

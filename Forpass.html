@@ -10,6 +10,19 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="theme_forpass.css">
+
+  <!-- import function js file -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="cookie.js-master/dist/cookie.umd.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+  <!-- <script type="text/javascript">
+    (function(){
+        emailjs.init("user_nCp4JuwgjUBQ53j8dn14s");
+    })();
+  </script> -->
+  
+  <script type="text/javascript" src="function-js/authentication.js"></script>
   
   <title>Forget Password</title>
 
@@ -63,8 +76,8 @@
      <input class="text2" style="position:relative" value="เพื่อทำการแจ้งรหัสใหม่"><br>
      </div>
      <input class="text3" style="position:relative" value="E-Mail ของคุณ">
-     <input class="form-control mr-sm-2" type="text">
-     <button class="continued"><a href="Sendemail.html"><span>ดำเนินการต่อ</span></a></button>
+     <input class="form-control mr-sm-2" id="forgot_email" type="text">
+     <button class="continued" id="forgot_continue"><span>ดำเนินการต่อ</span></button>
     </ul>
    </div>
 
