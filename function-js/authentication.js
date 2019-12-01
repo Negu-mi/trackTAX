@@ -2,22 +2,35 @@ $(document).ready(function() {
     // number of days to expired
     var exdays = 5;
 
+    // mock up data
+    var userData = {
+        'userID': '123456',
+        'email': 'lovelypet',
+        'password': calcMD5('123456789'),
+        'name': 'Abraham Lincoln'
+    }
+    $('.user').hide();
+
     // เช็ก cookie ตอนเริ่ม
     if(typeof cookie('userID') !== 'undefined') {
         $('#register').hide();
         $('#signIn').hide();
         $('#logOut').show();
+        $('.user').html(cookie('userID') + '&nbsp;&nbsp;&nbsp;&nbsp;');
+        $('.user').show();
     } else {
         $('#register').show();
         $('#signIn').show();
         $('#logOut').hide();
+        $('.user').hide();
     }
 
     // ฟังก์ชันเช็ก email ที่ user ให้มาว่าถูกใช้ในเว็บเราหรือยัง
     function existEmail(email) {
-        $.get("php file", {
-            user: email
-        }, function(userID) { return userID != '' ? true : false })
+        return email == userData.email ? true : false;
+        // $.get("php file", {
+        //     user: email
+        // }, function(userID) { return userID != '' ? true : false })
     }
 
     // ฟังก์ชันกำหนดค่า cookie
@@ -31,8 +44,11 @@ $(document).ready(function() {
     $("#signIn_accept").click(function signIn() {
         var email = $('#signIn_username').val();
         var password = calcMD5($('#signIn_password').val());
-        setCookie(email);
-        location.reload();
+        if(existEmail(email) && password == userData.password) {
+            setCookie(email);
+            location.reload();
+        } 
+        
         // window.history.back();
 
         // if(existEmail(email)) {
