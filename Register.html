@@ -29,7 +29,7 @@
       <button class="navbar-toggler p-0 border-0" type="button" data-toggle="trackTAX">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <input class="topic" style="position:relative" value="Register">
+      <input class="topic" style="position:relative" value="Register" disabled>
 
       <div class="pull-right ml-auto">
           <form class="form-inline my-2 my-lg-0">
@@ -63,7 +63,7 @@
 
   <div class="layout">
    <ul>
-    <input class="sub-topic" type="text" value="ลงทะเบียนฟรี">
+    <input class="sub-topic" type="text" value="ลงทะเบียนฟรี" disabled>
      <ul>
      <button class="btn btn-danger my-2 my-sm-0" type="submit" style="background-color: rgb(230, 42, 42)"> &nbsp;&nbsp;&nbsp;&nbsp;<img src="element/mail.png" width="28" height="20"/>&nbsp;&nbsp;ลงทะเบียนด้วย Gmail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
      <br>
@@ -73,9 +73,15 @@
         <hr style="float: left; width: 30%;"> 
        </div><br><br>
        <div class="insert">
+<<<<<<< HEAD
      <input class="form-control mr-sm-2" id="register_username" type="text" placeholder="บัญชีผู้ใช้" name="username">
      <input class="form-control mr-sm-2" id="register_password" type="text" placeholder="รหัสผ่าน" name="password1">
      <input class="form-control mr-sm-2" id="register_passwordConfirm" type="text" placeholder="ยืนยันรหัสผ่าน" name="password2"><br>
+=======
+     <input class="form-control mr-sm-2" type="text" placeholder="บัญชีผู้ใช้" name="username">
+     <input class="form-control mr-sm-2" type="text" placeholder="รหัสผ่าน" name="password1" minlength="8">
+     <input class="form-control mr-sm-2" type="text" placeholder="ยืนยันรหัสผ่าน" name="password2" minlength="8"><br>
+>>>>>>> 5ad69a3ef6422cb7a0e6eca63cd459258e8e7883
     </div>
     <button class="accept" id="register_accept"><span>ลงทะเบียน</span></button>
     </ul><br>

@@ -24,7 +24,7 @@
         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="trackTAX">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="topic" style="position:relative" value="Tax Computation">
+        <input class="topic" style="position:relative" value="Tax Computation" disabled>
   
         <div class="pull-right ml-auto">
             <form class="form-inline my-2 my-lg-0">
@@ -32,6 +32,8 @@
               <a class="search_logo" href="#"><img src="element/search.png" width="47" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
+              <li class="user">Username&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <button class="btn btn-primary my-2 my-sm-0" id="logOut" type="submit" color="#fff" style="background-color: rgb(66, 167, 131); cursor: pointer; display: none;">Log out</button>
             </form>
           </div>  
       </nav>
@@ -58,8 +60,8 @@
 
   <div class="mini-layout">
    <ul>
-    <input class="sub-topic" type="text" value="เงินคืนภาษี">
-    <input class="cost" type="text" value="0.00  บาท"><br><br><br>
+    <input class="sub-topic" type="text" value="เงินคืนภาษี"disabled>
+    <input class="cost" type="text" value="0.00  บาท"disabled><br><br><br>
     <div class="line">
     <span class="dot1">1</span>
     <hr style="float: left; width: 5%;"> 
@@ -69,25 +71,25 @@
     <hr class="l1" style="float: left; width: 5%; margin-left: 173px;"> 
     <span class="dot4">4</span>
     </div>
-    <input class="sub1" type="text" value="เริ่มต้น">
-    <input class="sub2" type="text" value="รายได้">
-    <input class="sub3" type="text" value="ลดหย่อน">
-    <input class="sub4" type="text" value="สุดท้าย">
+    <input class="sub1" type="text" value="เริ่มต้น"disabled>
+    <input class="sub2" type="text" value="รายได้"disabled>
+    <input class="sub3" type="text" value="ลดหย่อน"disabled>
+    <input class="sub4" type="text" value="สุดท้าย"disabled>
     <div class="bg">
-    <input class="top" type="text" value="สถานะใดต่อไปนี้ตรงกับคุณ ?">
+    <input class="top" type="text" value="สถานะใดต่อไปนี้ตรงกับคุณ ?"disabled>
     <hr style="float: left; width: 25%;"> 
     </div>
     <div class="check">
     <label class="container">มีบัตรประจำตัวคนพิการ
-      <input type="radio" checked="checked" value="carddisabled">
+      <input type="radio" checked="checked" value="carddisabled" name="radio">
       <span class="checkmark"></span>
     </label>
     <label class="container">แพทย์รับรองว่าทุพพลภาพ
-      <input type="radio" value="doctordisabled">
+      <input type="radio" value="doctordisabled" name="radio">
       <span class="checkmark"></span>
     </label>
     <label class="container">ไม่ตรงกับข้อใดเลย
-      <input type="radio" value="normal">
+      <input type="radio" value="normal" name="radio">
       <span class="checkmark"></span>
     </label>
     </div>

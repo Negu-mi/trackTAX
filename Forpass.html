@@ -36,7 +36,7 @@
         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="trackTAX">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="topic" style="position:relative" value="Forget Password">
+        <input class="topic" style="position:relative" value="Forget Password" disabled>
   
         <div class="pull-right ml-auto">
             <form class="form-inline my-2 my-lg-0">
@@ -44,6 +44,8 @@
               <a class="search_logo" href="#"><img src="element/search.png" width="47" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
+              <li class="user">Username&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <button class="btn btn-primary my-2 my-sm-0" id="logOut" type="submit" color="#fff" style="background-color: rgb(66, 167, 131); cursor: pointer; display: none;">Log out</button>
             </form>
           </div>  
       </nav>
@@ -72,12 +74,18 @@
     <ul>
      <a class="logo"><img src="element/logo.png" width="175.2" height="51.2"></a>
      <div class="detail">
-     <input class="text1" style="position:relative" value="กรุณากรอก E-Mail ที่แบบฟอร์มด้านล่าง"><br>
-     <input class="text2" style="position:relative" value="เพื่อทำการแจ้งรหัสใหม่"><br>
+     <input class="text1" style="position:relative" value="กรุณากรอก E-Mail ที่แบบฟอร์มด้านล่าง" disabled><br>
+     <input class="text2" style="position:relative" value="เพื่อทำการแจ้งรหัสใหม่" disabled><br>
      </div>
+<<<<<<< HEAD
      <input class="text3" style="position:relative" value="E-Mail ของคุณ">
      <input class="form-control mr-sm-2" id="forgot_email" type="text">
      <button class="continued" id="forgot_continue"><span>ดำเนินการต่อ</span></button>
+=======
+     <input class="text3" style="position:relative" value="E-Mail ของคุณ" disabled>
+     <input class="form-control mr-sm-2" type="text">
+     <button class="continued"><a href="Sendemail.html"><span>ดำเนินการต่อ</span></a></button>
+>>>>>>> 5ad69a3ef6422cb7a0e6eca63cd459258e8e7883
     </ul>
    </div>
 

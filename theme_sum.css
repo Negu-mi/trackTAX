@@ -115,6 +115,17 @@ ul,.nav_down {
     font-weight: bold; 
 }
 
+.user {
+    text-decoration: none;
+    margin-left: -10px;
+    font-size: 20px;
+    position: relative;
+    list-style: none;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /*End Content*/
 
 .nav_down ul {
