@@ -7,7 +7,7 @@ $(document).ready(function() {
         'userID': '123456',
         'email': 'lovelypet',
         'password': calcMD5('123456789'),
-        'name': 'Abraham Lincoln'
+        'name': 'Tom Jerry'
     }
     $('.user').hide();
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('#register').hide();
         $('#signIn').hide();
         $('#logOut').show();
-        $('.user').html(cookie('userID') + '&nbsp;&nbsp;&nbsp;&nbsp;');
+        $('.user').html(cookie('name') + ' (' + cookie('email') + ')' + '&nbsp;&nbsp;&nbsp;&nbsp;');
         $('.user').show();
     } else {
         $('#register').show();
