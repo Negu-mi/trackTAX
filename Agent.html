@@ -15,8 +15,18 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="cookie.js-master/dist/cookie.umd.min.js"></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init("user_nCp4JuwgjUBQ53j8dn14s");
+    })();
+  </script>
   <script type="text/javascript" src="function-js/authentication.js"></script>
-  
+  <script type="text/javascript" src="function-js/compute.js"></script>
+  <script type="text/javascript" src="function-js/service_health.js"></script>
+
   <title>Contact Agent</title>
 
 </head>
@@ -37,7 +47,7 @@
               <a class="search_logo" href="#"><img src="element/search.png" width="47" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" id="register" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" id="signIn" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
-              <li class="user"></li>
+              <a href="/Profile.html"><li class="user"></li></a>
               <button class="btn btn-primary my-2 my-sm-0" id="logOut" type="submit" color="#fff" style="background-color: rgb(66, 167, 131); cursor: pointer; display: none;">Log out</button>
             </form>
           </div>  
@@ -67,14 +77,14 @@
     <ul>
     <input class="sub-topic" type="text" value="ตัวแทนติดต่อกลับ"disabled>
     <div class="block1">
-    <input class="form-control mr-sm-2" type="text" placeholder="ชื่อ" name="nickname">
-    <input class="form-control mr-sm-2" type="text" placeholder="เบอร์โทรศัพท์" name="tel">
+    <input class="form-control mr-sm-2" id="name" type="text" placeholder="ชื่อ" name="nickname">
+    <input class="form-control mr-sm-2" id="tel" type="text" placeholder="เบอร์โทรศัพท์" name="tel">
     </div>
      <input class="text1" style="position:relative" value="ช่วงเวลาที่สะดวก"disabled>
      <div class="block2">
-     <input class="form-control mr-sm-2" type="text" placeholder="Ex. 8:00-15:00" name="timeok">
+     <input class="form-control mr-sm-2" id="time" type="text" placeholder="Ex. 8:00-15:00" name="timeok">
     </div>
-     <button class="continued"><a href="#"><span>สนใจซื้อ</span></a></button><br>
+     <button class="continued" id="agent_continue"><span>สนใจซื้อ</span></button><br>
      <input class="text2" style="position:relative" value="ข้อมูลจะถูกใช้สำหรับการติดต่อครั้งนี้เท่านั้น"disabled>
     </ul>
    </div>

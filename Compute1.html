@@ -17,7 +17,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="cookie.js-master/dist/cookie.umd.min.js"></script>
   <script type="text/javascript" src="function-js/authentication.js"></script>
-  
+  <script type="text/javascript" src="function-js/compute.js"></script>
+
   <title>Tax Computation</title>
 
 </head>
@@ -38,7 +39,7 @@
               <a class="search_logo" href="#"><img src="element/search.png" width="47" height="50"></a>&nbsp;&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" id="register" type="submit" style="background-color: rgb(66, 167, 131)"><a href="Register.html">Register</a></button>&nbsp;&nbsp;&nbsp;
               <button class="btn btn-primary my-2 my-sm-0" id="signIn" type="submit" color="#fff" style="background-color: rgb(66, 167, 131)"><a href="Sign_in.html">Sign In</a></button>
-              <li class="user"></li>
+              <a href="/Profile.html"><li class="user"></li></a>
               <button class="btn btn-primary my-2 my-sm-0" id="logOut" type="submit" color="#fff" style="background-color: rgb(66, 167, 131); cursor: pointer; display: none;">Log out</button>
             </form>
           </div>  
@@ -87,15 +88,15 @@
     </div>
     <div class="check">
     <label class="container">มีบัตรประจำตัวคนพิการ
-      <input type="radio" checked="checked" value="carddisabled" name="radio">
+      <input id="com1_card" type="radio" checked="checked" value="true" name="radio">
       <span class="checkmark"></span>
     </label>
     <label class="container">แพทย์รับรองว่าทุพพลภาพ
-      <input type="radio" value="doctordisabled" name="radio">
+      <input id="com1_doc" type="radio" value="true" name="radio">
       <span class="checkmark"></span>
     </label>
     <label class="container">ไม่ตรงกับข้อใดเลย
-      <input type="radio" value="normal" name="radio">
+      <input id="com1_norm" type="radio" value="false" name="radio">
       <span class="checkmark"></span>
     </label>
     </div>

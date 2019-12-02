@@ -171,22 +171,51 @@ $(document).ready(function() {
     var exdays = 5;
 
     // mock up data
-    var userData = {
-        'userID': '123456',
-        'email': 'lovelypet',
+    var userData = new Object();
+    userData = {
+        'userID': '',
+        'email': '',
+        'password': '',
+        'name': '',
+        'surname': '',
+        'tempPassword': '',
+        'isDisabled': true,
+        'isSingleIncome': true,
+        'prefix': 'mr',
+        'forgotEmail': '',
+        'currentTemp': ''
+    };
+
+    var member = {
+        'userID': '000001',
+        'email': 'lovelypet@mail.com',
         'password': calcMD5('123456789'),
-        'name': 'Tom Jerry'
-    }
+        'name': 'Tom',
+        'surname': 'Jerry',
+        'tempPassword': calcMD5('987654321'),
+        'isDisabled': true,
+        'isSingleIncome': true,
+        'prefix': 'mr',
+        'forgotEmail': '',
+        'currentTemp': ''
+    };
+    var guess = userData;
 
     $('.user').hide();
 
     // เช็ก cookie ตอนเริ่ม
     function checkCookie() {
-        if(typeof cookie('userID') !== 'undefined') {
+        if(cookie('userID') != '' && typeof cookie('userID') !== 'undefined') {
+            
             $('#register').hide();
             $('#signIn').hide();
             $('#logOut').show();
-            $('.user').html(cookie('name') + ' (' + cookie('email') + ')' + '&nbsp;&nbsp;&nbsp;&nbsp;');
+            if(cookie('name') != '' && typeof cookie('name') !== 'undefined') {
+                
+                $('.user').html(cookie('name') + ' (' + cookie('email') + ')' + '&nbsp;&nbsp;&nbsp;&nbsp;');
+            } else {
+                $('.user').html('(' + cookie('email') + ')' + '&nbsp;&nbsp;&nbsp;&nbsp;');
+            }
             $('.user').show();
         } else {
             $('#register').show();
@@ -197,49 +226,42 @@ $(document).ready(function() {
     }
     
     checkCookie();
-    console.log(cookie('name'));
+    
     // ฟังก์ชันเช็ก email ที่ user ให้มาว่าถูกใช้ในเว็บเราหรือยัง
     function existEmail(email) {
-        return email == userData.email ? true : false;
-        // $.get("php file", {
-        //     user: email
-        // }, function(userID) { return userID != '' ? true : false })
+        return email == member.email || email == guess.email ? true : false;
     }
 
     // ฟังก์ชันกำหนดค่า cookie
-    function setCookie(email) {
-        var data = userData;
-        var userID = data.userID;
-        var name = data.name;
-        cookie.empty().set({
-            'userID': userID,
-            'email': email,
-            'name': name
-        }, {
+    function setCookie(json) {
+        cookie.set(json, {
             expires: exdays
         });
     }
+
+    $('#reset_accept').click(function resetPassword() {
+        var password = $('#reset_password').val();
+        var confirmPassword = $('#reset_confirmPassword').val();
+        if(password == confirmPassword) {
+            cookie('password') = calcMD5(password);
+            cookie('tempPassword') = '';
+            location.replace('/index.html');
+        } else {
+            alert('รหัสผ่านยืนยันไม่ตรงกัน !');
+        }
+    })
 
     // ฟังก์ชันลงชื่อเข้าใช้ระบบ
     $("#signIn_accept").click(function signIn() {
         var email = $('#signIn_username').val();
         var password = calcMD5($('#signIn_password').val());
-        if(existEmail(email) && password == userData.password) {
-            setCookie(email);
+        if(existEmail(email) && password == member.password) {
+            setCookie(member);
             checkCookie();
-            window.history.back();
-        } 
-        
-        // window.history.back();
-
-        // if(existEmail(email)) {
-        //     $.get("php file", {
-        //         user: email,
-        //         password: password
-        //     }, setCookie(userID), "text")        
-        // } else {
-        //     alert("Email: " + email + "is used already.");
-        // }
+            location.replace('index.html');
+        } else if(email == cookie('forgotEmail') && password == cookie('currentPass')) {
+            location.replace('Reset.html');
+        }
     })
 
     // ฟังก์ชันสร้างบัญชีผู้ใช้
@@ -247,20 +269,16 @@ $(document).ready(function() {
         var email = $('#register_username').val();
         if($('#register_password').val() == $('#register_passwordConfirm').val()) {
             var password = calcMD5($('#register_password').val());
-            setCookie(email);
-            window.history.back();
+            var newUser = userData;
+            newUser.email = email;
+            newUser.password = password;
+            newUser.userID = '000002';
+            setCookie(newUser);
+            checkCookie();
+            location.replace('index.html');
         } else {
             alert('รหัสผ่านยืนยันไม่ตรงกัน!');
         }
-        
-        // if(!existEmail(email)) {
-        //     $.post("php file", {
-        //         user: email,
-        //         password: CryptoJS.MD5(password)
-        //     }, setCookie(userID), "text")
-        // } else {
-        //     alert("Email: " + email + "is invalid!");
-        // }
     })
 
     // ฟังก์ชันยืนยันตัวตนด้วย google
@@ -278,48 +296,34 @@ $(document).ready(function() {
     // ฟังก์ชันส่งรหัสชั่วคราว
     $('#forgot_continue').click(function forgotPassword() {
         var targetEmail = $('forgot_email').val();
-        // var data = {
-        //     service_id: 'gmail',
-        //     template_id: 'template_c08Oqgh6',
-        //     user_id: 'YOUR_USER_ID',
-        //     template_params: {
-        //         'username': 'James',
-        //         'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...'
-        //     }
-        // };
-         
-        // $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-        //     type: 'POST',
-        //     data: JSON.stringify(data),
-        //     contentType: 'application/json'
-        // }).done(function() {
-        //     alert('Your mail is sent!');
-        // }).fail(function(error) {
-        //     alert('Oops... ' + JSON.stringify(error));
-        // });
-
-        console.log('hello');
-
-        var data = {
-            service_id: 'gmail',
-            template_id: 'temp_password',
-            user_id: 'user_nCp4JuwgjUBQ53j8dn14s',
-            template_params: {
-                'reply_to': 'peterpisut@gmail.com',
-                'message': 'This is awesome!'
-            }
+        var tempPassword = calcMD5(Math.random().toString(36).slice(-8));
+        var templateParams = {
+            'reply_to': targetEmail,
+            'message_html': tempPassword
         };
-
-        $.ajax({url: 'https://api.emailjs.com/api/v1.0/email/send',
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json'
+        emailjs.send('gmail', 'temp_password', templateParams).then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+            console.log('FAILED...', error);
         });
-        // .done(function() {
-        //     alert('Your mail is sent!');
-        // }).fail(function(error) {
-        //     alert('Oops... ' + JSON.stringify(error));
-        // });
+        cookie('forgotEmail') = targetEmail;
+        cookie('currentPass') = tempPassword;
+    })
+
+    $('#change_accept').click(function changePassword() {
+        var oldPass = calcMD5($('#change_oldPassword').val());
+        var newPass = $('#change_newPassword').val();
+        var confirmPass = $('#change_confirmPassword').val();
+        if(oldPass == cookie('password')) {
+            if(newPass == confirmPass) {
+                cookie('password') = calcMD5(newPass);
+                location.replace('Profile.html');
+            } else {
+                alert('รหัสผ่านยืนยันไม่ตรงกัน !');
+            }
+        } else {
+            alert('รหัสผ่านอันเก่าไม่ถูกต้อง');
+        }
     })
 
 })
